@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <script src="./d3.v7.js"></script>
     <script src="./d3.v7.min.js"></script>
-    <link rel="stylesheet" href="./cloneTable.css">
+    <link rel="stylesheet" href="./visuals.css">
     
 </head>
 <body>
@@ -15,14 +15,44 @@
       <select id="folderSelect">
         <option value="none" disabled selected>Select a Folder</option>
         <option value="testfiles">TestFiles Project</option>
-        <option value="small">SmallSql Project</option>
-        <option value="hsq">Hsqldb Project</option>
+        <option value="smallsql0.21_src">SmallSql Project</option>
+        <option value="hsqldb-2.3.1">Hsqldb Project</option>
     </select>
 
     <h3>Select the type of clones to visualize: </h3>
     <select id="fileSelect">
         <option value="none" disabled selected>Select a Type</option>
     </select>
+
+    <h3>Visualizing some calculated metrics:</h3>
+    <div id="cloneDisplay" class="scrollable-table">
+        <table>
+            <tr>
+              <td>Cloned Code Percentage: </td>
+              <td id="clonedPercentage"></td>
+            </tr>
+            <tr>
+              <td>Biggest Class Members:</td>
+              <td id="biggestClassMembers"></td>
+            </tr>
+            <tr>
+                <td>Biggest Class in Node Size:</td>
+                <td id="biggestClassLines"></td>
+              </tr>
+              <tr>
+                <td>Total Clone Size:</td>
+                <td id="totalCloneSize"></td>
+              </tr>
+              <tr>
+                <td>Number Of Type 1 Clones:</td>
+                <td id="totalClones1"></td>
+              </tr>
+              <tr>
+                <td>Number Of Type 2 Clones:</td>
+                <td id="totalClones2"></td>
+              </tr>
+          </table>
+    </div>
 
     <h3>Code Duplication Visualizer:</h3>
     <select id="cloneSelect">
@@ -52,6 +82,9 @@
         <h3 >Zoomable Circle Packing</h3>
         <div id="kyklous"></div>
 
+        <h3>Tidy Tree</h3>
+        <div id="tidyTree"></div>
+
         <h3>Hierarchical Edge Bundling</h3>
         <div id="hierchicalGraph"></div>
     </div>
@@ -60,6 +93,8 @@
 </html>
 <script class="main" src="./Main.js"></script>
 <script class="visualTable" src="./CloneTable.js"></script>
+<script class="metrics" src="./Metrics.js"></script>
 <script class="visualbarChart" src="./BarCHart.js"></script>
 <script class="visualCircle" src="./VlepwKyklous.js"></script>
 <script class="visualHierarchical" src="./Hierarchical.js"></script>
+<script class="visualTidyTree" src="./TidyTree.js"></script>

@@ -12,11 +12,11 @@ document.getElementById('folderSelect').addEventListener('change', function() {
         case 'testfiles':
             files = ['results1.json', 'results2.json'];
             break;
-        case 'small':
-            files = ['smallsql1.json', 'smallsql2.json'];
+        case 'smallsql0.21_src':
+            files = ['results1.json', 'results2.json'];
             break;
-        case 'hsq':
-            files = ['resultshsql.json', 'file6.json'];
+        case 'hsqldb-2.3.1':
+            files = ['results1.json', 'results2.json'];
             break;
         default:
             files = []; // Empty or default case
@@ -60,7 +60,6 @@ function setupCloneSelectListener(jsonData) {
     });
 }
 
-
 function loadTheCorrectJson(selectedPath) {
 
     var directory = selectedPath.split('/')[0];
@@ -82,10 +81,12 @@ function loadTheCorrectJson(selectedPath) {
             // for the array displaying the code duplications
             populateCloneSelect(jsonData[0]);
             setupCloneSelectListener(jsonData[0]);
+            populateMetrics(jsonData[0]);
 
             visualBarChart(jsonData[0], jsonData[1]);
             visualCirclePacking(jsonData[0]);
             visualHierarchical(jsonData[0]);
+            visualTidyTree(jsonData[0]);
             
         })
         .catch(error => console.error('Error loading JSON:', error));
@@ -96,6 +97,7 @@ function resetCharts() {
     const bar = document.getElementById('barChart');
     const circles = document.getElementById('kyklous');
     const hierarchy = document.getElementById('hierchicalGraph');
+    const tree = document.getElementById('tidyTree');
     while (bar.firstChild) {
         bar.removeChild(bar.firstChild);
     }
@@ -104,5 +106,8 @@ function resetCharts() {
     }
     while (hierarchy.firstChild) {
         hierarchy.removeChild(hierarchy.firstChild);
+    }
+    while (tree.firstChild) {
+        tree.removeChild(tree.firstChild);
     }
 }

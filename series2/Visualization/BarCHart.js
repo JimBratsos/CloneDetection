@@ -17,6 +17,9 @@ function processCloneData(jsonData1, jsonData2) {
         dataArray.push({ clone_type: type, frequency: cloneTypeCounts2[type]/totalCLones });
     }
 
+    document.getElementById('totalClones1').innerHTML = totalType1Frequencies;
+    document.getElementById('totalClones2').innerHTML = totalType2Frequencies;
+
     return dataArray;
 }
 
