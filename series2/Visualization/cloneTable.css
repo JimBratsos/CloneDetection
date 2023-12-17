@@ -1,0 +1,81 @@
+.center-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    max-width: 1000px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.center-container h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: darkslategray;
+}
+
+.center-container h3 {
+    font-size: 1em;
+    text-align: center;
+    margin: 10px;
+    padding: 2px;
+    width: auto;
+}
+
+.center-container div {
+    width: 70%;
+    margin-bottom: 20px;
+}
+
+#cloneDisplay {
+    width: auto;
+    margin: auto;
+    overflow-x: auto;
+}
+
+.scrollable-table {
+    width: 100%;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+.scrollable-table td {
+    text-align: left;
+    border: 2px solid lightgrey;
+    padding: 8px;
+}
+
+.scrollable-table th {
+    background-color: lightgrey;
+    text-align: center;
+}
+
+#kyklous {
+    width: 80%;
+    box-sizing: border-box;
+    margin: auto;
+}
+
+#hierchicalGraph {
+    width: 100%; 
+    border: 1px solid lightgrey;
+}
+
+select {
+    padding: 5px 10px;
+    border-radius: 2px;
+    border: 1px solid black;
+    background-color: lightgrey;
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+button, input[type="submit"] {
+    padding: 6px 12px;
+    margin-top: 10px;
+    border-radius: 4px;
+    border: 2px solid lightgrey;
+    background-color: lightgrey;
+    cursor: pointer;
+}

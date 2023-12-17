@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="./d3.v7.js"></script>
+    <script src="./d3.v7.min.js"></script>
+    <link rel="stylesheet" href="./cloneTable.css">
+    
+</head>
+<body>
+    <div class="center-container"> 
+    <h1>Visualization</h1>
+
+    <h3>Choose the project that you want to see visualizations for: </h3>
+      <select id="folderSelect">
+        <option value="none" disabled selected>Select a Folder</option>
+        <option value="testfiles">TestFiles Project</option>
+        <option value="small">SmallSql Project</option>
+        <option value="hsq">Hsqldb Project</option>
+    </select>
+
+    <h3>Select the type of clones to visualize: </h3>
+    <select id="fileSelect">
+        <option value="none" disabled selected>Select a Type</option>
+    </select>
+
+    <h3>Code Duplication Visualizer:</h3>
+    <select id="cloneSelect">
+        <option value="none" disabled selected>Select a Clone</option>
+    </select>
+
+    <div id="cloneDisplay" class="scrollable-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Original Code</th>
+                    <th>Clone Code</th>
+                </tr>
+            </thead>
+            <tbody id="code-block">
+                <tr>
+                    <td><pre id="originalCode"></pre></td>
+                    <td><pre id="cloneCode"></pre></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+        <h3 >Bar Chart</h3>
+        <div id="barChart"></div>
+
+        <h3 >Zoomable Circle Packing</h3>
+        <div id="kyklous"></div>
+
+        <h3>Hierarchical Edge Bundling</h3>
+        <div id="hierchicalGraph"></div>
+    </div>
+
+</body>
+</html>
+<script class="main" src="./Main.js"></script>
+<script class="visualTable" src="./CloneTable.js"></script>
+<script class="visualbarChart" src="./BarCHart.js"></script>
+<script class="visualCircle" src="./VlepwKyklous.js"></script>
+<script class="visualHierarchical" src="./Hierarchical.js"></script>
