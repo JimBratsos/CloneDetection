@@ -1,0 +1,285 @@
+{
+  "summary": {
+    "project_name": "Project"
+  },
+  "clone_code_percentage": 49.35064935,
+  "biggest_class_members": 4,
+  "clone_pairs": [
+    {
+      "origin": {
+        "end_line": 25,
+        "file": "/directory/lines.java",
+        "start_line": 21,
+        "source_code": "int x = 5;\r\n        int y = 10;\r\n        int z = 3;\r\n        int b = 10;\r\n        int n = 100;"
+      },
+      "id": "clone_1",
+      "clone_type": "type-2",
+      "clone": {
+        "end_line": 9,
+        "file": "/directory/subdirectory/lines2.java",
+        "start_line": 5,
+        "source_code": "int x = 5;\r\n        int y = 10;\r\n        int z = 3;\r\n        int b = 10;\r\n        int n = 100;"
+      }
+    },
+    {
+      "origin": {
+        "end_line": 25,
+        "file": "/directory/lines.java",
+        "start_line": 21,
+        "source_code": "int x = 5;\r\n        int y = 10;\r\n        int z = 3;\r\n        int b = 10;\r\n        int n = 100;"
+      },
+      "id": "clone_2",
+      "clone_type": "type-2",
+      "clone": {
+        "end_line": 9,
+        "file": "/directory/subdirectory2/lines3.java",
+        "start_line": 5,
+        "source_code": "int x = 5;\r\n        int y = 10;\r\n        int z = 3;\r\n        int b = 10;\r\n        int n = 100;"
+      }
+    },
+    {
+      "origin": {
+        "end_line": 9,
+        "file": "/directory/subdirectory/lines2.java",
+        "start_line": 5,
+        "source_code": "int x = 5;\r\n        int y = 10;\r\n        int z = 3;\r\n        int b = 10;\r\n        int n = 100;"
+      },
+      "id": "clone_3",
+      "clone_type": "type-2",
+      "clone": {
+        "end_line": 9,
+        "file": "/directory/subdirectory2/lines3.java",
+        "start_line": 5,
+        "source_code": "int x = 5;\r\n        int y = 10;\r\n        int z = 3;\r\n        int b = 10;\r\n        int n = 100;"
+      }
+    },
+    {
+      "origin": {
+        "end_line": 15,
+        "file": "/directory/subdirectory2/lines3.java",
+        "start_line": 7,
+        "source_code": "int e = 3;\r\n        int m = 10;\r\n        int n = 100;\r\n        if (m > 1100) {\r\n            n = e + 5;\r\n        } else {\r\n            n = l + 100;\r\n        }\r\n        return n+v;"
+      },
+      "id": "clone_4",
+      "clone_type": "type-2",
+      "clone": {
+        "end_line": 29,
+        "file": "/directory/subdirectory2/lines3.java",
+        "start_line": 21,
+        "source_code": "int e = 3;\r\n        int m = 10;\r\n        int n = 100;\r\n        if (m > 1100) {\r\n            n = e + 5;\r\n        } else {\r\n            n = l + 100;\r\n        }\r\n        return n+v;"
+      }
+    },
+    {
+      "origin": {
+        "end_line": 31,
+        "file": "/directory/lines.java",
+        "start_line": 21,
+        "source_code": "int x = 5;\r\n        int y = 10;\r\n        int z = 3;\r\n        int b = 10;\r\n        int n = 100;\r\n        if (b > 10) {\r\n            n = n + 5;\r\n        } else {\r\n            n = n + 100;\r\n        }\r\n        return (x+y)/(n+z);"
+      },
+      "id": "clone_5",
+      "clone_type": "type-2",
+      "clone": {
+        "end_line": 15,
+        "file": "/directory/subdirectory/lines2.java",
+        "start_line": 5,
+        "source_code": "int x = 5;\r\n        int y = 10;\r\n        int z = 3;\r\n        int b = 10;\r\n        int n = 100;\r\n        if (b > 10) {\r\n            n = n + 5;\r\n        } else {\r\n            n = n + 100;\r\n        }\r\n        return (x+y)/(n+z);"
+      }
+    },
+    {
+      "origin": {
+        "end_line": 25,
+        "file": "/directory/lines.java",
+        "start_line": 23,
+        "source_code": "int z = 3;\r\n        int b = 10;\r\n        int n = 100;"
+      },
+      "id": "clone_6",
+      "clone_type": "type-2",
+      "clone": {
+        "end_line": 9,
+        "file": "/directory/subdirectory/lines2.java",
+        "start_line": 7,
+        "source_code": "int z = 3;\r\n        int b = 10;\r\n        int n = 100;"
+      }
+    },
+    {
+      "origin": {
+        "end_line": 25,
+        "file": "/directory/lines.java",
+        "start_line": 23,
+        "source_code": "int z = 3;\r\n        int b = 10;\r\n        int n = 100;"
+      },
+      "id": "clone_7",
+      "clone_type": "type-2",
+      "clone": {
+        "end_line": 9,
+        "file": "/directory/subdirectory2/lines3.java",
+        "start_line": 7,
+        "source_code": "int z = 3;\r\n        int b = 10;\r\n        int n = 100;"
+      }
+    },
+    {
+      "origin": {
+        "end_line": 25,
+        "file": "/directory/lines.java",
+        "start_line": 23,
+        "source_code": "int z = 3;\r\n        int b = 10;\r\n        int n = 100;"
+      },
+      "id": "clone_8",
+      "clone_type": "type-2",
+      "clone": {
+        "end_line": 23,
+        "file": "/directory/subdirectory2/lines3.java",
+        "start_line": 21,
+        "source_code": "int z = 3;\r\n        int b = 10;\r\n        int n = 100;"
+      }
+    },
+    {
+      "origin": {
+        "end_line": 9,
+        "file": "/directory/subdirectory/lines2.java",
+        "start_line": 7,
+        "source_code": "int z = 3;\r\n        int b = 10;\r\n        int n = 100;"
+      },
+      "id": "clone_9",
+      "clone_type": "type-2",
+      "clone": {
+        "end_line": 9,
+        "file": "/directory/subdirectory2/lines3.java",
+        "start_line": 7,
+        "source_code": "int z = 3;\r\n        int b = 10;\r\n        int n = 100;"
+      }
+    },
+    {
+      "origin": {
+        "end_line": 9,
+        "file": "/directory/subdirectory/lines2.java",
+        "start_line": 7,
+        "source_code": "int z = 3;\r\n        int b = 10;\r\n        int n = 100;"
+      },
+      "id": "clone_10",
+      "clone_type": "type-2",
+      "clone": {
+        "end_line": 23,
+        "file": "/directory/subdirectory2/lines3.java",
+        "start_line": 21,
+        "source_code": "int z = 3;\r\n        int b = 10;\r\n        int n = 100;"
+      }
+    },
+    {
+      "origin": {
+        "end_line": 9,
+        "file": "/directory/subdirectory2/lines3.java",
+        "start_line": 7,
+        "source_code": "int e = 3;\r\n        int m = 10;\r\n        int n = 100;"
+      },
+      "id": "clone_11",
+      "clone_type": "type-2",
+      "clone": {
+        "end_line": 23,
+        "file": "/directory/subdirectory2/lines3.java",
+        "start_line": 21,
+        "source_code": "int e = 3;\r\n        int m = 10;\r\n        int n = 100;"
+      }
+    },
+    {
+      "origin": {
+        "end_line": 30,
+        "file": "/directory/lines.java",
+        "start_line": 26,
+        "source_code": "{\r\n            n = n + 5;\r\n        } else {\r\n            n = n + 100;\r\n        }"
+      },
+      "id": "clone_12",
+      "clone_type": "type-2",
+      "clone": {
+        "end_line": 14,
+        "file": "/directory/subdirectory/lines2.java",
+        "start_line": 10,
+        "source_code": "{\r\n            n = n + 5;\r\n        } else {\r\n            n = n + 100;\r\n        }"
+      }
+    },
+    {
+      "origin": {
+        "end_line": 30,
+        "file": "/directory/lines.java",
+        "start_line": 26,
+        "source_code": "{\r\n            n = n + 5;\r\n        } else {\r\n            n = n + 100;\r\n        }"
+      },
+      "id": "clone_13",
+      "clone_type": "type-2",
+      "clone": {
+        "end_line": 14,
+        "file": "/directory/subdirectory2/lines3.java",
+        "start_line": 10,
+        "source_code": "{\r\n            n = n + 5;\r\n        } else {\r\n            n = n + 100;\r\n        }"
+      }
+    },
+    {
+      "origin": {
+        "end_line": 30,
+        "file": "/directory/lines.java",
+        "start_line": 26,
+        "source_code": "{\r\n            n = n + 5;\r\n        } else {\r\n            n = n + 100;\r\n        }"
+      },
+      "id": "clone_14",
+      "clone_type": "type-2",
+      "clone": {
+        "end_line": 28,
+        "file": "/directory/subdirectory2/lines3.java",
+        "start_line": 24,
+        "source_code": "{\r\n            n = n + 5;\r\n        } else {\r\n            n = n + 100;\r\n        }"
+      }
+    },
+    {
+      "origin": {
+        "end_line": 14,
+        "file": "/directory/subdirectory/lines2.java",
+        "start_line": 10,
+        "source_code": "{\r\n            n = n + 5;\r\n        } else {\r\n            n = n + 100;\r\n        }"
+      },
+      "id": "clone_15",
+      "clone_type": "type-2",
+      "clone": {
+        "end_line": 14,
+        "file": "/directory/subdirectory2/lines3.java",
+        "start_line": 10,
+        "source_code": "{\r\n            n = n + 5;\r\n        } else {\r\n            n = n + 100;\r\n        }"
+      }
+    },
+    {
+      "origin": {
+        "end_line": 14,
+        "file": "/directory/subdirectory/lines2.java",
+        "start_line": 10,
+        "source_code": "{\r\n            n = n + 5;\r\n        } else {\r\n            n = n + 100;\r\n        }"
+      },
+      "id": "clone_16",
+      "clone_type": "type-2",
+      "clone": {
+        "end_line": 28,
+        "file": "/directory/subdirectory2/lines3.java",
+        "start_line": 24,
+        "source_code": "{\r\n            n = n + 5;\r\n        } else {\r\n            n = n + 100;\r\n        }"
+      }
+    },
+    {
+      "origin": {
+        "end_line": 14,
+        "file": "/directory/subdirectory2/lines3.java",
+        "start_line": 10,
+        "source_code": "{\r\n            n = e + 5;\r\n        } else {\r\n            n = l + 100;\r\n        }"
+      },
+      "id": "clone_17",
+      "clone_type": "type-2",
+      "clone": {
+        "end_line": 28,
+        "file": "/directory/subdirectory2/lines3.java",
+        "start_line": 24,
+        "source_code": "{\r\n            n = e + 5;\r\n        } else {\r\n            n = l + 100;\r\n        }"
+      }
+    }
+  ],
+  "biggest_class_lines": 7,
+  "volume": 77,
+  "clone_class_num": 5,
+  "total_clone_size": 38
+}
