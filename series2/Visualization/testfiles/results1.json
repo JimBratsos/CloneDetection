@@ -10,7 +10,7 @@
         "end_line": 31,
         "file": "/directory/lines.java",
         "start_line": 21,
-        "source_code": "int x = 5;\r\n        int y = 10;\r\n        int z = 3;\r\n        int b = 10;\r\n        int n = 100;\r\n        if (b > 10) {\r\n            n = n + 5;\r\n        } else {\r\n            n = n + 100;\r\n        }\r\n        return (x+y)/(n+z);"
+        "source_code": "int x = 5;\n        int y = 10;\n        int z = 3;\n        int b = 10;\n        int n = 100;\n        if (b > 10) {\n            n = n + 5;\n        } else {\n            n = n + 100;\n        }\n        return (x+y)/(n+z);"
       },
       "id": "clone_1",
       "clone_type": "type-1",
@@ -18,7 +18,7 @@
         "end_line": 15,
         "file": "/directory/subdirectory/lines2.java",
         "start_line": 5,
-        "source_code": "int x = 5;\r\n        int y = 10;\r\n        int z = 3;\r\n        int b = 10;\r\n        int n = 100;\r\n        if (b > 10) {\r\n            n = n + 5;\r\n        } else {\r\n            n = n + 100;\r\n        }\r\n        return (x+y)/(n+z);"
+        "source_code": "int x = 5;\n        int y = 10;\n        int z = 3;\n        int b = 10;\n        int n = 100;\n        if (b > 10) {\n            n = n + 5;\n        } else {\n            n = n + 100;\n        }\n        return (x+y)/(n+z);"
       }
     }
   ],

@@ -2,63 +2,13 @@ module JSONExport
 
 import lang::json::IO;
 import Location;
+import misc::volume;
 import String;
 import IO;
 import Map;
+import Set;
 import util::Math;
 import List;
-
-list[str] getDirectories(loc mainDirectory) { // Stop the recursion
-    return getDirectories(mainDirectory, false); 
-}
-
-list[str] getDirectories(loc mainDirectory, bool recursive) { // Recursively get all the directories
-    list[str] directories = [];
-
-    if (exists(mainDirectory) && isDirectory(mainDirectory)) {
-        list[loc] entries = mainDirectory.ls;
-        
-        for (loc entryLoc <- entries) {
-            if (isDirectory(entryLoc)) {
-                // Add just the directory name, not the full URI
-                directories += [entryLoc.path];
-                
-                // If recursive is true, recurse into the subdirectory
-                if (recursive) {
-                    // Concatenate the current directory name with the result of the recursive call
-                    directories += getDirectories(entryLoc, true); // Recursive call
-                }
-            }
-        }
-    } else {
-        println("Directory does not exist or is not accessible");
-    }
-
-    return directories;
-}
-
-list[map[str, value]] getFileDetails(loc mainDirectory) {
-    list[map[str, value]] files = [];
-
-    if (exists(mainDirectory) && isDirectory(mainDirectory)) {
-        list[loc] entries = mainDirectory.ls; // This should list all entries in the directory
-
-        for (loc entryLoc <- entries) {
-            if (isDirectory(entryLoc)) {
-                // Recurse into the subdirectory
-                files += getFileDetails(entryLoc);
-            } else if (contains(entryLoc.path, ".java")) {
-                // It's a Java file, add its details to the list
-                map[str, value] fileDetails = ("name": entryLoc.path, "dir": entryLoc.parent);
-                files += [fileDetails];
-            }
-        }
-    } else {
-        println("Directory does not exist or is not accessible");
-    }
-
-    return files;
-}
 
 tuple[str,map[loc,str]] getSourceCode(loc location, map[loc,str] cacheContent) {
     if (location notin cacheContent) {
@@ -75,6 +25,7 @@ tuple[list[map[str, value]],int] createClonePairsJSON(map[list[node], lrel[loc, 
     map[loc,str] cacheContent = ();
     list[map[str, value]] clonePairs = [];
     set[loc] pairChecked = {};
+    map[str, set[int]] fileExists = ();
 
     int cloneID = 1;
 
@@ -98,29 +49,43 @@ tuple[list[map[str, value]],int] createClonePairsJSON(map[list[node], lrel[loc, 
             
             map[str, value] clonePair = (
                 "id": "clone_" + "<cloneID>",
-                "clone_type": cloneTypeStr, // Adjust as per your clone classification logic
+                "clone_type": cloneTypeStr,
                 "origin": (
-                    "file": originLoc.path, // Access file path
-                    "start_line": originLoc.begin.line, // Access start line
-                    "end_line": originLoc.end.line, // Access end line
-                    "source_code": originLocMap[0] // You need to define this function
+                    "file": originLoc.path, 
+                    "start_line": originLoc.begin.line,
+                    "end_line": originLoc.end.line,
+                    "source_code": originLocMap[0]
                 ),
                 "clone": (
                     "file": cloneLoc.path,
                     "start_line": cloneLoc.begin.line,
                     "end_line": cloneLoc.end.line,
-                    "source_code": cloneLocMap[0] // You need to define this function
+                    "source_code": cloneLocMap[0]
                 )
             );
 
             clonePairs = clonePairs + [clonePair];
             cloneID += 1;
-            if(originLoc notin pairChecked) totalSize += ((originLoc.end.line - originLoc.begin.line) + 1);
-            if(cloneLoc notin pairChecked) totalSize += ((cloneLoc.end.line - cloneLoc.begin.line) + 1);
-            
-            pairChecked = pairChecked + originLoc;
-            pairChecked = pairChecked + cloneLoc;
+            if(originLoc.uri in fileExists) {
+                set[int] locSet = toSet([originLoc.begin.line..originLoc.end.line]);
+                fileExists[originLoc.uri] = fileExists[originLoc.uri] + locSet;
+            } else {
+                set[int] locSet = toSet([originLoc.begin.line..originLoc.end.line]);
+                fileExists[originLoc.uri] = locSet;
+            }
+
+            if(cloneLoc.uri in fileExists) {
+                set[int] locSet = toSet([cloneLoc.begin.line..cloneLoc.end.line]);
+                fileExists[cloneLoc.uri] = fileExists[cloneLoc.uri] + locSet;
+            } else {
+                set[int] locSet = toSet([cloneLoc.begin.line..cloneLoc.end.line]);
+                fileExists[cloneLoc.uri] = locSet;
+            }
         }
+    }
+
+    for(fileLoc <- fileExists) {
+        totalSize += size(fileExists[fileLoc]);
     }
 
     return <clonePairs, totalSize>;
@@ -128,8 +93,6 @@ tuple[list[map[str, value]],int] createClonePairsJSON(map[list[node], lrel[loc, 
 
 void exportJSON(tuple[map[list[node], lrel[loc,loc]], int, int] cloneLocations, loc mainDir, int cloneType, int volume) {
     map[str, str] summary = ("project_name": "Project");
-    list[str] directories = getDirectories(mainDir, true);
-    list[map[str, value]] files = getFileDetails(mainDir);
 
     tuple[list[map[str, value]], int] clonePairsAndSize = createClonePairsJSON(cloneLocations[0], cloneType);
     list[map[str, value]] clonePairs = clonePairsAndSize[0];
@@ -138,8 +101,6 @@ void exportJSON(tuple[map[list[node], lrel[loc,loc]], int, int] cloneLocations, 
 
     map[str, value] jsonStructure = (
         "summary": summary,
-        "directories": directories,
-        "files": files,
         "clone_pairs": clonePairs,
         "clone_class_num": size(cloneLocations[0]),
         "biggest_class_members": cloneLocations[1],

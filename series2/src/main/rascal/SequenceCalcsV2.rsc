@@ -122,8 +122,7 @@ tuple[map[list[node],list[list[node]]], map[list[node], list[node]]] initializeB
     return <buckets, cacheDelAnnotations>;
 }
 
-tuple[map[list[node], lrel[loc,loc]], int, int] sequenceClones(list[Declaration] asts, int minSequenceThreshold, int cloneType) {
-    real similarityThreshold = -1.0;
+tuple[map[list[node], lrel[loc,loc]], int, int] sequenceClones(list[Declaration] asts, int minSequenceThreshold) {
     map[list[node], list[list[node]]] cloneClasses = ();
     map[list[node], lrel[loc,loc]] cloneClassesPairs = ();
     map[list[node],int] subFreq = ();
@@ -152,6 +151,8 @@ tuple[map[list[node], lrel[loc,loc]], int, int] sequenceClones(list[Declaration]
         // println("BUCKET SIZE: " + "<size(buckets)>");
         // int bucketNow = 0;
 
+        int totalLength = 0;
+
         for (hash <- buckets) {
 
             // bucketNow += 1; // BUCKET PROGRESS DEBUG
@@ -166,7 +167,7 @@ tuple[map[list[node], lrel[loc,loc]], int, int] sequenceClones(list[Declaration]
 
                 list[node] keyNode = cacheDelAnnotations[currentBucket[0]];
 
-                cloneClasses = subsumeRemoveFinal(cloneClasses, currentBucket, cloneType);
+                cloneClasses = subsumeRemoveFinal(cloneClasses, currentBucket);
                 cloneClasses[keyNode] = currentBucket;
             }
         }
@@ -193,7 +194,7 @@ tuple[map[list[node], lrel[loc,loc]], int, int] sequenceClones(list[Declaration]
     }
 
     println("Max Class in Members: " + "<maxClassMembers>");
-    println("Max Class in Lines: " + "<maxClassLines>");
+    println("Max Class in Node Size: " + "<maxClassLines>");
     
     return <cloneClassesPairs, maxClassMembers, maxClassLines>;
 }

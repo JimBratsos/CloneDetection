@@ -16,7 +16,7 @@ list[Declaration] getASTs(loc projectLocation) {
     return asts;
 }
 
-map[list[node], list[list[node]]] subsumeRemoveFinal(map[list[node], list[list[node]]] cloneList, list[list[node]] parent, int cloneType) {
+map[list[node], list[list[node]]] subsumeRemoveFinal(map[list[node], list[list[node]]] cloneList, list[list[node]] parent) {
     list[list[node]] toDelete = [];
 
     for(child <- cloneList) {
